@@ -16,21 +16,26 @@
     <div>
     <h2>Spis Treści</h2>
     <ul>
-        <li><a href="./k1.html">Księga 1</a></li>
-        <li><a href="./k2.html">Księga 2</a></li>
-        <li><a href="./k3.html">Księga 3</a></li>
-        <li><a href="./k4.html">Księga 4</a></li>
-        <li><a href="./k5.html">Księga 5</a></li>
-        <li><a href="./k6.html">Księga 6</a></li>
-        <li><a href="./k7.html">Księga 7</a></li>
-        <li><a href="./k8.html">Księga 8</a></li>
-        <li><a href="./k9.html">Księga 9</a></li>
-        <li><a href="./k10.html">Księga 10</a></li>
-        <li><a href="./k11.html">Księga 11</a></li>
-        <li><a href="./k12.html">Księga 12</a></li>
+		<li><a href="./index.php">Strona główna</li>
+		<?php
+			for($k=1; $k <= 12 ; $k++) {
+				print("<li><a href=\"./index.php?k=$k&name=Ksa\">Księga $k</a></li>");
+			}
+		?>
     </ul>
 </div>
 <div class="col-8">
+<?php
+	if (isset($_GET['k'])){
+		$k = $_GET['k'];
+		include_once("k$k.html");
+	} else {
+		print('<img src="https://mm.pwn.pl/ency/jpg/583/f/d10i0067.jpg"/>');
+	}
+	$k = $_GET['k'];
+	print($_GET['name']);
+	include_once("k$k.html");
+?>
 </div> 
 </body>
 </html>
